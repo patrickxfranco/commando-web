@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default {
   plugins: [tailwindcss(), tsconfigPaths()],
   server: {
-    host: '192.168.57.200',
-    port: 5173,
+    allowedHosts: true,
+    host: '192.168.42.126',
   },
 } satisfies UserConfig;
