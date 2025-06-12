@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 
 export function Header(): React.ReactElement {
   return (
-    <header className="fixed items-center gap-4 grid grid-cols-[min-content_1fr_min-content] grid-rows-1 grid-flow-col bg-background/90 backdrop-blur-lg px-4 border-b w-full h-20">
+    <header className="z-50 fixed items-center gap-4 grid grid-cols-[min-content_1fr_min-content] grid-rows-1 grid-flow-col bg-background/90 backdrop-blur-lg px-4 border-b w-full h-20">
       <div id="logo" className="max-w-min">
         <Button type="button" variant="ghost" size="icon" className="w-12 h-12">
           <span className="sr-only">Voltar para home</span>
