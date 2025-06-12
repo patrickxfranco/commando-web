@@ -1,7 +1,7 @@
 export function Home(): React.ReactElement {
   return (
-    <>
-      <h1>Olá mundo</h1>
-    </>
+    <div className="pt-20">
+      <div className="bg-red-500 w-full h-10"></div>
+    </div>
   );
 }
