@@ -12,6 +12,12 @@ export function MobileCard({ imdbID }: MobileCardProps) {
   const [notFound, setNotFound] = useState<Boolean>(false);
 
   useEffect(() => {
+    if (!imdbID) {
+      setMovie(undefined);
+      setNotFound(false);
+      return;
+    }
+
     async function fetchData() {
       const response = await fetch(`https://imdb.iamidiotareyoutoo.com/search?tt=${imdbID}`);
       const json: MovieInfo = await response.json();
