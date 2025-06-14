@@ -7,7 +7,7 @@ export default {
   plugins: [tailwindcss(), tsconfigPaths()],
   server: {
     allowedHosts: true,
-    host: '192.168.178.33',
+    host: '192.168.178.159',
     port: 5173,
   },
 } satisfies UserConfig;
