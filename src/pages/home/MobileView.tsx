@@ -15,6 +15,7 @@ export function MobileView() {
         <MobileCard imdbID="tt1124373" />
         <MobileCard imdbID="tt10233448" />
         <MobileCard imdbID="tt4574334" />
+        <MobileCard imdbID="tt0389860" />
       </div>
     </div>
   );
