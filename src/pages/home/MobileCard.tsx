@@ -9,14 +9,25 @@ type MobileCardProps = {
 
 export function MobileCard({ imdbID }: MobileCardProps) {
   const [movie, setMovie] = useState<MovieInfo>();
+  const [notFound, setNotFound] = useState<Boolean>(false);
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`https://imdb.iamidiotareyoutoo.com/search?tt=${imdbID}`);
       const json: MovieInfo = await response.json();
+
+      if (!json.short) {
+        setNotFound(true);
+      }
+
       setMovie(json);
     }
     fetchData();
   }, [imdbID]);
+
+  if (notFound) {
+    return null;
+  }
 
   if (!movie) {
     return <Skeleton className="rounded-md w-full h-25" />;
