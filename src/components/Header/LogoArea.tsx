@@ -37,7 +37,7 @@ export function LogoArea() {
               </div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-background/90 backdrop-blur-lg ml-4 min-w-max">
+          <DropdownMenuContent className="bg-background/90 backdrop-blur-lg ml-4 w-60">
             <DropdownMenuLabel className="text-[12px] text-muted-foreground">adicionar conteúdo</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
@@ -55,7 +55,7 @@ export function LogoArea() {
               Aqui você pode adicionar um novo conteúdo a sua lista de favoritos usando o ID usado no IMDb
             </DialogDescription>
           </DialogHeader>
-          <MobileCard imdbID={idSearch} />
+          {idSearch === '' ? null : <MobileCard imdbID={idSearch} />}
           <div className="flex flex-col gap-4 my-4">
             <Input
               type="search"
