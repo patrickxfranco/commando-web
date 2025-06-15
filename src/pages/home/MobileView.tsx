@@ -1,7 +1,28 @@
-import { MobileCard } from './MobileCard';
 import { Star } from 'lucide-react';
 
+import { DataManager } from '@/lib/dataManager';
+
+import { MobileCard } from './MobileCard';
+
+import type { MovieInfo } from '@/types/movie';
+
 export function MobileView() {
+  const dataManager = new DataManager();
+
+  const allContents = dataManager.getMovies();
+
+  console.log(dataManager.getMovies());
+
+  // function renderContent(content: MovieInfo) {
+  //   return <MobileCard key={content.imdbId} imdbID={content.imdbId} />;
+  // }
+
+  function renderContents(contents: MovieInfo[]) {
+    return contents.map((content) => {
+      return <MobileCard key={content.imdbId} imdbID={content.imdbId} />;
+    });
+  }
+
   return (
     <div>
       <div className="mx-4 mt-4">
@@ -11,12 +32,7 @@ export function MobileView() {
         </h1>
       </div>
       <p className="mx-12 text-[12px] text-muted-foreground">Os filmes e séries que você mais gosta listados abaixo</p>
-      <div className="sm:invisible flex flex-col gap-4 mx-4 mt-4">
-        <MobileCard imdbID="tt1124373" />
-        <MobileCard imdbID="tt10233448" />
-        <MobileCard imdbID="tt4574334" />
-        <MobileCard imdbID="tt0389860" />
-      </div>
+      <div className="sm:invisible flex flex-col gap-4 mx-4 mt-4">{renderContents(allContents)}</div>
     </div>
   );
 }

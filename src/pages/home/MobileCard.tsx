@@ -21,8 +21,10 @@ export function MobileCard({ imdbID }: MobileCardProps) {
     setNotFound(false);
 
     async function fetchData() {
+      console.log('Buscando: ', imdbID);
       const response = await fetch(`https://imdb.iamidiotareyoutoo.com/search?tt=${imdbID}`);
       const json: MovieInfo = await response.json();
+      console.log('Resposta da API: ', json);
 
       if (!json.short) {
         setNotFound(true);

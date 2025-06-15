@@ -3,6 +3,11 @@
  */
 export type MovieInfo = {
   /**
+   * ID do título no IMDb.
+   * Exemplo: 'tt0389860'
+   */
+  imdbId: string;
+  /**
    * Dados básicos do título (filme ou série), seguindo o padrão schema.org.
    */
   short: {
