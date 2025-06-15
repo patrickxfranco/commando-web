@@ -18,12 +18,16 @@ export function MobileCard({ imdbID }: MobileCardProps) {
       return;
     }
 
+    setNotFound(false);
+
     async function fetchData() {
       const response = await fetch(`https://imdb.iamidiotareyoutoo.com/search?tt=${imdbID}`);
       const json: MovieInfo = await response.json();
 
       if (!json.short) {
         setNotFound(true);
+        setMovie(undefined);
+        return null;
       }
 
       setMovie(json);

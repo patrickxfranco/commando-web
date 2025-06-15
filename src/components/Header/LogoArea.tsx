@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 
-import { useEffect, useState, type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { Link } from 'react-router';
 import { MobileCard } from '@/pages/Home/MobileCard';
 
@@ -56,9 +56,14 @@ export function LogoArea() {
             </DialogDescription>
           </DialogHeader>
           <MobileCard imdbID={idSearch} />
-          <div className="flex flex-col gap-2 my-4">
-            <Input placeholder="IMDb ID, exemplo: tt0389860" value={idSearch} onChange={(e) => setIdSearch(e.target.value)} />
-            <Link to="https://www.imdb.com/" target="_blank">
+          <div className="flex flex-col gap-4 my-4">
+            <Input
+              type="search"
+              placeholder="IMDb ID, exemplo: tt0389860"
+              value={idSearch}
+              onChange={(e) => setIdSearch(e.target.value)}
+            />
+            <Link to="https://www.imdb.com/" target="_blank" className="max-w-max text-amber-300">
               Buscar no IMDb
             </Link>
           </div>
@@ -73,7 +78,7 @@ export function LogoArea() {
 
 function DropDownMenuItem({ itemName, icon, ...props }: DropDownMenuItemProps & React.ComponentProps<'div'>) {
   return (
-    <DropdownMenuItem className="flex flex-row items-center gap-2 p-3" onSelect={(e: any) => e.preventDefault()} {...props}>
+    <DropdownMenuItem className="flex flex-row items-center gap-2 p-3" {...props}>
       {icon ? icon : null}
       {itemName}
     </DropdownMenuItem>
